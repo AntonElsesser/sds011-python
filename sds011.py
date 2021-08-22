@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from source.definitions import WorkingMode, ReportMode, Modifier, Frame, MessageType, Command
+from definitions import WorkingMode, ReportMode, Modifier, Frame, MessageType, Command
            
     
 class SDS011:

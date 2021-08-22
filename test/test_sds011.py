@@ -2,10 +2,12 @@
 
 import time
 import unittest
+import pytest
 import serial
-from source.sds011 import SDS011
-from source.definitions import WorkingMode, ReportMode, Modifier, Command
+from sds011 import SDS011
+from definitions import WorkingMode, ReportMode, Modifier, Command
         
+@pytest.mark.skip(reason="Only works with real device")
 class TestSDS011Simulation(unittest.TestCase):
     
     @classmethod
@@ -38,7 +40,7 @@ class TestSDS011Simulation(unittest.TestCase):
     def check_working_mode_reply(self): 
         self.assertEqual(self.sensor.last_reply[2], Command.WORKING_MODE.value)
         self.check_reply_id_reply_valid()   
-
+    
     def test_working_mode(self):
         # Set Sleep Mode
         working_mode = WorkingMode.SLEEP_MODE
@@ -238,7 +240,6 @@ class TestSDS011Simulation(unittest.TestCase):
         print('Device ID: ' + self.sensor.get_device_id())
         
 if __name__ == '__main__':
-    # disabled because not working on github only working with real device
-    #unittest.main()
-    pass
+    unittest.main()
+
     

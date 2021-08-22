@@ -1,5 +1,5 @@
 import serial
-from source.sds011 import SDS011
+from sds011 import SDS011
 
 def run() -> None:
     try:
