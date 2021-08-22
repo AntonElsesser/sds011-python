@@ -1,11 +1,11 @@
 import serial
-import sds011
+from source.sds011 import SDS011
 
 def run() -> None:
     try:
         ser = serial.Serial('COM4', 9600) 
         ser.flushInput()
-        sensor = sds011.SDS011(ser)
+        sensor = SDS011(ser)
         print('Connected to SDS011 with id: ' + sensor.get_device_id())
         sensor.print_firmware()
         

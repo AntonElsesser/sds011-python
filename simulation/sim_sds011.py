@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from sds011 import SDS011
-from definitions import WorkingMode, ReportMode, Modifier, Frame, MessageType, Command
+from source.sds011 import SDS011
+from source.definitions import WorkingMode, ReportMode, Modifier, Frame, MessageType, Command
 
 
 class SimulationSDS011:

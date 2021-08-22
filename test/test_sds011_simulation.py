@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-from sds011 import SDS011
+from source.sds011 import SDS011
 from simulation.sim_sds011 import SimulationSDS011
-from definitions import WorkingMode, ReportMode, Modifier, Command
+from source.definitions import WorkingMode, ReportMode, Modifier, Command
         
 class TestSDS011Simulation(unittest.TestCase):
     
