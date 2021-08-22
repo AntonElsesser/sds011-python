@@ -2,7 +2,7 @@
 
 import unittest
 from sds011 import SDS011
-from simulation.sds011 import SimulationSDS011
+from simulation.sim_sds011 import SimulationSDS011
 from definitions import WorkingMode, ReportMode, Modifier, Command
         
 class TestSDS011Simulation(unittest.TestCase):
