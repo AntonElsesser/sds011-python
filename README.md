@@ -3,7 +3,7 @@ Control for SDS011 over serial interface and simulation for SDS011 for implement
 
 Inspired by kadamski/sds011
 
-<script src="https://gist.github.com/kadamski/92653913a53baf9dd1a8.js"></script>
+https://gist.github.com/kadamski/92653913a53baf9dd1a8
 
 Used python version was 3.7.
 
