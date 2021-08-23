@@ -141,48 +141,48 @@ class SDS011:
 
     def get_report_mode(self, device_id: List[int] = None):
         """ Get report mode """
-        self.__prepare_command(Command.REPORT_MODE,
-                              [Modifier.GET.value],
-                              device_id=device_id)
+        self.__prepare_command(command=Command.REPORT_MODE,
+                               data=[Modifier.GET.value],
+                               device_id=device_id)
         self.__write_and_wait_reply()
 
     def query_data(self, device_id: List[int] = None):
         """ Query data from device """
-        self.__prepare_command(Command.QUERY_DATA,
-                              [0],
-                              device_id=device_id)
+        self.__prepare_command(command=Command.QUERY_DATA,
+                               data=[0],
+                               device_id=device_id)
         self.__write_and_wait_reply()
 
     def set_device_id(self, new_device_id: [int, int],
                       device_id: List[int] = None) -> None:
         """ Set device id """
         data = [0]*10 + new_device_id
-        self.__prepare_command(Command.SET_DEVICE_ID,
-                             data,
-                             device_id=device_id)
+        self.__prepare_command(command=Command.SET_DEVICE_ID,
+                               data=data,
+                               device_id=device_id)
         self.__write_and_wait_reply()
         self.__decode_device_id()
 
     def set_working_mode(self, working_mode: WorkingMode,
                          device_id: List[int] = None) -> None:
         """ Set working mode """
-        self.__prepare_command(Command.WORKING_MODE,
-                             [Modifier.SET.value, working_mode.value],
-                             device_id=device_id)
+        self.__prepare_command(command=Command.WORKING_MODE,
+                               data=[Modifier.SET.value, working_mode.value],
+                               device_id=device_id)
         self.__write_and_wait_reply()
 
     def get_working_mode(self, device_id: List[int] = None) -> None:
         """ Get working mode """
-        self.__prepare_command(Command.WORKING_MODE,
-                             [Modifier.GET.value],
-                             device_id=device_id)
+        self.__prepare_command(command=Command.WORKING_MODE,
+                               data=[Modifier.GET.value],
+                               device_id=device_id)
         self.__write_and_wait_reply()
 
     def get_firmware_version(self, device_id: List[int] = None) -> None:
         """ Get firmware version and decode firmware and device id"""
-        self.__prepare_command(Command.GET_FIRMWARE,
-                             [0],
-                             device_id=device_id)
+        self.__prepare_command(command=Command.GET_FIRMWARE,
+                               data=[0],
+                               device_id=device_id)
         self.__write_and_wait_reply()
         self.firmware = {'year': self.last_reply[3],
                          'month': self.last_reply[4],
@@ -195,14 +195,14 @@ class SDS011:
         # valid values 1 min to 30 min and 0 for continuous
         # work 30 seconds and sleep n*60-30 seconds】
         assert 0 <= working_period <= 30
-        self.__prepare_command(Command.WORKING_PERIOD,
-                             [Modifier.SET.value, working_period],
-                             device_id=device_id)
+        self.__prepare_command(command=Command.WORKING_PERIOD,
+                               data=[Modifier.SET.value, working_period],
+                               device_id=device_id)
         self.__write_and_wait_reply()
 
     def get_working_period(self, device_id: List[int] = None) -> None:
         """ Get working mode """
-        self.__prepare_command(Command.WORKING_PERIOD,
-                             [Modifier.GET.value],
-                             device_id=device_id)
+        self.__prepare_command(command=Command.WORKING_PERIOD,
+                               data=[Modifier.GET.value],
+                               device_id=device_id)
         self.__write_and_wait_reply()

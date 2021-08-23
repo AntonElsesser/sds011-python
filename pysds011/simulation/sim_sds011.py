@@ -6,6 +6,7 @@ from pathlib import Path
 from ..definitions import WorkingMode, ReportMode, Modifier, Frame, Command, MessageType
 from ..sds011 import SDS011
 
+
 class SimulationSDS011:
     """ Simulation class for SDS011 """
 
@@ -35,7 +36,7 @@ class SimulationSDS011:
             if self.offset >= len(self.data):
                 self.offset = 0
             read_buffer.append(self.data[self.offset])
-            self.offset +=1
+            self.offset += 1
         return read_buffer
 
     def flushInput(self) -> None:
@@ -46,7 +47,7 @@ class SimulationSDS011:
 
     def read_sample_data_sds011(self) -> None:
         """ Load sample data from file """
-        file = open(self.path_to_sample_binary,'rb')
+        file = open(self.path_to_sample_binary, 'rb')
         data = file.read()
         file.close()
         self.data = data
@@ -55,14 +56,14 @@ class SimulationSDS011:
         """ Validate received command """
         if len(self.command) == 19:
             if (self.command[0] == Frame.HEADER.value and
-                self.command[1] == MessageType.COMMAND.value and
-                self.command[-1] == Frame.TAIL.value):
+                 self.command[1] == MessageType.COMMAND.value and
+                 self.command[-1] == Frame.TAIL.value):
                 message_data = []
                 for i in range(len(self.command[2:-2])):
                     message_data.append(self.command[2+i])
                 if SDS011.calculate_checksum(message_data) == self.command[-2]:
                     if (self.command[-4:-2] == bytes([255, 255]) or
-                        self.command[-4:-2] == bytes(self.device_id)):
+                         self.command[-4:-2] == bytes(self.device_id)):
                         return True
         return False
 
