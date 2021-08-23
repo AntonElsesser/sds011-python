@@ -56,14 +56,14 @@ class SimulationSDS011:
         """ Validate received command """
         if len(self.command) == 19:
             if (self.command[0] == Frame.HEADER.value and
-                 self.command[1] == MessageType.COMMAND.value and
-                 self.command[-1] == Frame.TAIL.value):
+                self.command[1] == MessageType.COMMAND.value and
+                self.command[-1] == Frame.TAIL.value):
                 message_data = []
                 for i in range(len(self.command[2:-2])):
                     message_data.append(self.command[2+i])
                 if SDS011.calculate_checksum(message_data) == self.command[-2]:
-                    if (self.command[-4:-2] == bytes([255, 255]) or
-                         self.command[-4:-2] == bytes(self.device_id)):
+                    if (self.command[-4:-2] == bytes([255, 255]) or 
+                        self.command[-4:-2] == bytes(self.device_id)):
                         return True
         return False
 
