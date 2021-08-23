@@ -14,7 +14,7 @@ class SimulationSDS011:
         self.firmware = [15, 7, 10]
         self.measurement_data = [34, 0, 40, 0]  # [ PM2.5_low_byte, PM2.5_high_byte, PM10_low_byte, PM10_high_byte]
         
-        self.path_to_sample_binary = '..\data\sample_data_sds011.hex'
+        self.path_to_sample_binary = './data/sample_data_sds011.hex'
         self.data = bytearray()
         self.offset = 0
         
