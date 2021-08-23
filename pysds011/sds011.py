@@ -3,7 +3,12 @@
 """ Class for control the SDS011 sensor. """
 
 from typing import List
-from .definitions import WorkingMode, ReportMode, Modifier, Frame, Command, MessageType
+from .definitions import WorkingMode
+from .definitions import ReportMode
+from .definitions import Modifier
+from .definitions import Frame
+from .definitions import Command
+from .definitions import MessageType
 
 
 class SDS011:
@@ -32,8 +37,8 @@ class SDS011:
         """ Validate generated command """
         if len(self.last_command) == 19:
             if (self.last_command[0] == Frame.HEADER.value and
-                self.last_command[1] == MessageType.COMMAND.value and
-                self.last_command[-1] == Frame.TAIL.value):
+                    self.last_command[1] == MessageType.COMMAND.value and
+                    self.last_command[-1] == Frame.TAIL.value):
                 if self.__valid_checksum(self.last_command):
                     return True
         return False
@@ -42,9 +47,9 @@ class SDS011:
         """ Validate reply from device """
         if len(self.last_reply) == 10:
             if (self.last_reply[0] == Frame.HEADER.value and
-                self.last_reply[-1] == Frame.TAIL.value):
+                    self.last_reply[-1] == Frame.TAIL.value):
                 if (self.last_reply[1] == MessageType.COMMAND_REPLY.value or
-                    self.last_reply[1] == MessageType.DATA.value):
+                        self.last_reply[1] == MessageType.DATA.value):
                     if self.__valid_checksum(self.last_reply):
                         return True
         return False

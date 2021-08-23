@@ -24,5 +24,6 @@ def run() -> None:
         print('interrupted!')
         ser.close()
 
+
 if __name__ == '__main__':
     run()

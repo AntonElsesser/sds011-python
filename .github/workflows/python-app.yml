@@ -34,6 +34,9 @@ jobs:
         mypy-flags: ''
         fail-on-isort: false
         
+      options:
+        max-line-length: 88
+        
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
