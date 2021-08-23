@@ -3,7 +3,7 @@
 """ Class for control the SDS011 sensor. """
 
 from typing import List
-from sds011.definitions import WorkingMode, ReportMode, Modifier, Frame, MessageType, Command
+from .definitions import WorkingMode, ReportMode, Modifier, Frame, Command, MessageType
 
 
 class SDS011:

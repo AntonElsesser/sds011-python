@@ -3,9 +3,8 @@
 """ Simulation for serial connection with connected SDS011 sensor """
 
 from pathlib import Path
-from sds011 import SDS011
-from sds011 import WorkingMode, ReportMode, Modifier, Frame, MessageType, Command
-
+from ..definitions import WorkingMode, ReportMode, Modifier, Frame, Command, MessageType
+from ..sds011 import SDS011
 
 class SimulationSDS011:
     """ Simulation class for SDS011 """
@@ -20,7 +19,7 @@ class SimulationSDS011:
         # [ PM2.5_low_byte, PM2.5_high_byte, PM10_low_byte, PM10_high_byte]
         self.measurement_data = [34, 0, 40, 0]
 
-        self.path_to_sample_binary = (Path(__file__).resolve().parents[1]
+        self.path_to_sample_binary = (Path(__file__).resolve().parents[2]
                                       / 'data/sample_data_sds011.hex')
         self.data = bytearray()
         self.offset = 0

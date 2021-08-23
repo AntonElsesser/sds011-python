@@ -7,7 +7,8 @@ import unittest
 import pytest
 import serial
 
-from sds011 import SDS011, WorkingMode, ReportMode, Modifier, Command
+from pysds011.sds011 import SDS011
+from pysds011.definitions import WorkingMode, ReportMode, Modifier, Command
 
 
 @pytest.mark.skip(reason="Only works with real SDS011 sensor.")

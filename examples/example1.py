@@ -3,7 +3,7 @@
 """ Simple Example """
 
 import serial
-from sds011 import SDS011
+from pysds011.sds011 import SDS011
 
 
 def run() -> None:
