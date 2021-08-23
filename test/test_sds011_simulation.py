@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+import sys
+sys.path.append('/home/runner/work/sds011-python/sds011-python/')
 
 import unittest
 from sds011 import SDS011
 from simulation.sim_sds011 import SimulationSDS011
 from definitions import WorkingMode, ReportMode, Modifier, Command
-        
+
 class TestSDS011Simulation(unittest.TestCase):
     
     @classmethod

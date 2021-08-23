@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import sys
+sys.path.append('/home/runner/work/sds011-python/sds011-python/')
+
 import time
 import unittest
 import pytest
