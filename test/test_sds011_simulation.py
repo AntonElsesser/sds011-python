@@ -3,9 +3,7 @@
 """ Test simulation and control for SDS011 sensor """
 
 import unittest
-from sds011 import SDS011
-from sds011 import WorkingMode, ReportMode, Modifier, Command
-from sds011 import SimulationSDS011
+from sds011 import SDS011, WorkingMode, ReportMode, Modifier, Command, SimulationSDS011
 
 
 class TestSDS011Simulation(unittest.TestCase):
