@@ -11,11 +11,13 @@ class WorkingMode(enum.Enum):
     SLEEP_MODE = 0
     WORK_MODE = 1
 
+
 @enum.unique
 class ReportMode(enum.Enum):
     """ Report modes """
     REPORT_ACTIVE_MODE = 0
     REPORT_QUERY_MODE = 1
+
 
 @enum.unique
 class Modifier(enum.Enum):
@@ -23,11 +25,13 @@ class Modifier(enum.Enum):
     GET = 0
     SET = 1
 
+
 @enum.unique
 class Frame(enum.Enum):
     """ Frame constans """
     HEADER = 170
     TAIL = 171
+
 
 @enum.unique
 class MessageType(enum.Enum):
@@ -35,6 +39,7 @@ class MessageType(enum.Enum):
     COMMAND = 180
     COMMAND_REPLY = 197
     DATA = 192
+
 
 @enum.unique
 class Command(enum.Enum):
