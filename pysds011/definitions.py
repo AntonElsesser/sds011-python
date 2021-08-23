@@ -44,9 +44,9 @@ class MessageType(enum.Enum):
 @enum.unique
 class Command(enum.Enum):
     """ Commands """
-    REPORT_MODE  = 2
-    QUERY_DATA  = 4
-    SET_DEVICE_ID  = 5
-    WORKING_MODE   = 6
-    GET_FIRMWARE   = 7
+    REPORT_MODE = 2
+    QUERY_DATA = 4
+    SET_DEVICE_ID = 5
+    WORKING_MODE = 6
+    GET_FIRMWARE = 7
     WORKING_PERIOD = 8

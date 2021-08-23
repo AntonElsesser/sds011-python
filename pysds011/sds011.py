@@ -105,7 +105,7 @@ class SDS011:
         assert len(data) <= 12
         if not device_id:
             device_id = [255, 255]
-        data += [0,]*(12-len(data)) + device_id
+        data += [0, ]*(12-len(data)) + device_id
         command_message = [Frame.HEADER.value, MessageType.COMMAND.value, command.value]
         command_message += data
         command_message.append(SDS011.calculate_checksum([command.value] + data))
@@ -134,9 +134,9 @@ class SDS011:
     def set_report_mode(self, report_mode: ReportMode,
                         device_id: List[int] = None) -> None:
         """ Set report mode """
-        self.__prepare_command(Command.REPORT_MODE,
-                              [Modifier.SET.value, report_mode.value],
-                              device_id=device_id)
+        self.__prepare_command(command = Command.REPORT_MODE,
+                               data = [Modifier.SET.value, report_mode.value],
+                               device_id = device_id)
         self.__write_and_wait_reply()
 
     def get_report_mode(self, device_id: List[int] = None):
