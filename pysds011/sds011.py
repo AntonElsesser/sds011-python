@@ -134,9 +134,9 @@ class SDS011:
     def set_report_mode(self, report_mode: ReportMode,
                         device_id: List[int] = None) -> None:
         """ Set report mode """
-        self.__prepare_command(command = Command.REPORT_MODE,
-                               data = [Modifier.SET.value, report_mode.value],
-                               device_id = device_id)
+        self.__prepare_command(command=Command.REPORT_MODE,
+                               data=[Modifier.SET.value, report_mode.value],
+                               device_id=device_id)
         self.__write_and_wait_reply()
 
     def get_report_mode(self, device_id: List[int] = None):
