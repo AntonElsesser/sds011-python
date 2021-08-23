@@ -100,7 +100,7 @@ class SDS011:
         return str(bytes(self.device_id).hex()).upper()
 
     def __prepare_command(self, command: Command, data: List[int],
-                        device_id: List[int] = None) -> None:
+                          device_id: List[int] = None) -> None:
         """ Build command for device control """
         assert len(data) <= 12
         if not device_id:

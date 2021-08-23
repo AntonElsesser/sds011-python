@@ -4,8 +4,8 @@
 
 import unittest
 
-from pysds011.sds011 import SDS011 
-from pysds011.definitions import WorkingMode, ReportMode, Modifier, Command 
+from pysds011.sds011 import SDS011
+from pysds011.definitions import WorkingMode, ReportMode, Modifier, Command
 from pysds011.simulation.sim_sds011 import SimulationSDS011
 
 
@@ -84,7 +84,6 @@ class TestSDS011Simulation(unittest.TestCase):
         self.sensor.last_reply = b'\xaa\xc0\x22\x00\x28\x00\x70\x50\x1a\xab'
         self.assertFalse(self.sensor.reply_message_valid())
 
-
     def __check_command_id_command_valid(self):
         """ Check command id is b'\xff\xff' and command is valid """
         self.assertEqual(self.sensor.last_command[-4:-2], bytes([255, 255]))
@@ -141,7 +140,6 @@ class TestSDS011Simulation(unittest.TestCase):
 
         self.__check_working_mode_reply()
         self.assertEqual(self.sensor.last_reply[3], Modifier.GET.value)
-
 
     def __check_report_mode_command(self):
         """ Check report mode command """
@@ -279,6 +277,7 @@ class TestSDS011Simulation(unittest.TestCase):
         self.assertTrue(self.sensor.reply_message_valid())
 
         self.sensor.print_firmware()
+
 
 if __name__ == '__main__':
     unittest.main()

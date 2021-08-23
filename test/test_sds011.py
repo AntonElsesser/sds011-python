@@ -91,7 +91,6 @@ class TestSDS011Simulation(unittest.TestCase):
         self.assertEqual(self.sensor.last_reply[4], working_mode.value)
         self.assertEqual(self.sensor.last_command[3], Modifier.GET.value)
 
-
     def __check_report_mode_command(self):
         """ Check report mode command """
         self.assertEqual(self.sensor.last_command[2], Command.REPORT_MODE.value)
@@ -256,6 +255,7 @@ class TestSDS011Simulation(unittest.TestCase):
 
         self.sensor.print_firmware()
         print('Device ID: ' + self.sensor.get_device_id())
+
 
 if __name__ == '__main__':
     unittest.main()
